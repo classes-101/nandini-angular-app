@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM') {
+            steps {
+                git 'https://github.com/classes-101/nandini-angular-app.git'
+            }
+        }
+        stage('Install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('package') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh 'sudo cp -r dist/nandini-angular-app/browser/*  /var/www/html/'
+            }
+        }
+        
+        
+    }
+}
