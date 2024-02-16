@@ -2,8 +2,8 @@
 - name: copy file in playbook
   hosts: all
   become: yes
-    tasks:
-      - name: copy app files to server
-        copy:
-          src: dist/nandini-angular-app/browser/
-          dest: /var/www/html/
+  tasks:
+    - name: copy app files to server
+      copy:
+        src: dist/nandini-angular-app/browser/
+        dest: /var/www/html/
