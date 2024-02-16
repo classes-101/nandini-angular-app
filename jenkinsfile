@@ -19,7 +19,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'sudo cp -r dist/nandini-angular-app/browser/*  /var/www/html/'
+                ansiblePlaybook become: true, credentialsId: '4becc546-620d-4510-b6ec-031e7868e7ca', disableHostKeyChecking: true, inventory: 'dev.inv', playbook: 'copy.yml', vaultTmpPath: ''
             }
         }
         
